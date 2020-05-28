@@ -9,7 +9,7 @@ import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(path = "/time-entries")
 public class TimeEntryController {
     private final TimeEntryRepository timeEntryRepository;
