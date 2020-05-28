@@ -36,11 +36,7 @@ public class TimeEntryController {
     @GetMapping
     public ResponseEntity<List<TimeEntry>> list() {
         List<TimeEntry> list = timeEntryRepository.list();
-        if(list.isEmpty()){
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        } else {
-            return new ResponseEntity(list, HttpStatus.OK);
-        }
+        return new ResponseEntity(list, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
