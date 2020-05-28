@@ -14,7 +14,9 @@ public class PalTrackerApplication {
     }
 
     @Bean
-    public static TimeEntryRepository inMemoryTimeEntryRepository(@Value("${SPRING_DATASOURCE_URL:NOT SET}") MysqlDataSource dataSource) {
+    public static TimeEntryRepository inMemoryTimeEntryRepository(@Value("${SPRING_DATASOURCE_URL:NOT SET}") String SPRING_DATASOURCE_URL) {
+        MysqlDataSource dataSource = new MysqlDataSource();
+        dataSource.setUrl(SPRING_DATASOURCE_URL);
         return new JdbcTimeEntryRepository(dataSource);
     }
 }
